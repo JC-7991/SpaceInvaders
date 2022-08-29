@@ -18,7 +18,15 @@ export default class EnemyController{
         this.createEnemies();
     }
 
-    draw(ctx){}
+    draw(ctx){
+        this.drawEnemies(ctx);
+    }
+
+    drawEnemies(ctx){
+        this.enemyRows.flat().forEach((enemy) => {
+            enemy.draw(ctx);
+        });
+    }
 
     createEnemies(){
 
