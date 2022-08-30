@@ -2,6 +2,8 @@ export default class Player{
 
     rightPressed = false;
     leftPressed = false;
+    upPressed = false;
+    downPressed = false;
     shootPressed = false;
 
     constructor(canvas, velocity){
@@ -51,6 +53,14 @@ export default class Player{
             this.x += -this.velocity;
         }
 
+        else if(this.upPressed){
+            this.x += this.velocity;
+        }
+
+        else if(this.downPressed){
+            this.x += -this.velocity;
+        }
+
     }
 
     keydown = event => {
@@ -63,6 +73,14 @@ export default class Player{
             this.leftPressed = true;
         }
 
+        if(event.code == "ArrowUp"){
+            this.upPressed = true;
+        }
+
+        if(event.code == "ArrowDown"){
+            this.downPressed = true;
+        }
+
     }
 
     keyup = event => {
@@ -73,6 +91,14 @@ export default class Player{
 
         if(event.code == "ArrowLeft"){
             this.leftPressed = false;
+        }
+
+        if(event.code == "ArrowUp"){
+            this.upPressed = false;
+        }
+
+        if(event.code == "ArrowDown"){
+            this.downPressed = false;
         }
 
     }
