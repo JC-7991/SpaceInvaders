@@ -1,5 +1,9 @@
 export default class Player{
 
+    rightPressed = false;
+    leftPressed = false;
+    shootPressed = false;
+
     constructor(canvas, velocity){
 
         this.canvas = canvas;
@@ -14,10 +18,63 @@ export default class Player{
         this.image = new Image();
         this.image.src = "images/player.png";
 
+        document.addEventListener("keydown", this.keydown);
+        document.addEventListener("keyup", this.keyup);
+
     }
 
     draw(ctx){
+        this.move();
+        this.collideWithWalls();
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
+    collideWithWalls(){
+
+        if(this.x < 0){
+            this.x = 0;
+        }
+
+        if(this.x > this.canvas.width - this.width){
+            this.x = this.canvas.width - this.width;
+        }
+
+    }
+
+    move(){
+
+        if(this.rightPressed){
+            this.x += this.velocity;
+        }
+
+        else if(this.leftPressed){
+            this.x += -this.velocity;
+        }
+
+    }
+
+    keydown = event => {
+
+        if(event.code == "ArrowRight"){
+            this.rightPressed = true;
+        }
+
+        if(event.code == "ArrowLeft"){
+            this.leftPressed = true;
+        }
+
+    }
+
+    keyup = event => {
+
+        if(event.code == "ArrowRight"){
+            this.rightPressed = false;
+        }
+
+        if(event.code == "ArrowLeft"){
+            this.leftPressed = false;
+        }
+
     }
 
 }
