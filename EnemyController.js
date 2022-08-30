@@ -19,7 +19,7 @@ export default class EnemyController{
     yVelocity = 0;
     defaultXVelocity = 1;
     defaulyYVelocity = 1;
-    moveDownTimerDefault = 80;
+    moveDownTimerDefault = 30;
     moveDownTimer = this.moveDownTimerDefault;
 
     constructor(canvas){
@@ -71,6 +71,21 @@ export default class EnemyController{
 
             else if(this.currentDirection === MovingDirection.left){
 
+                this.xVelocity = -this.defaultXVelocity;
+                this.yVelocity = 0;
+                const leftmostEnemy = enemyRow[0];
+
+                if(leftmostEnemy.x <= 0){
+                    this.currentDirection = MovingDirection.downRight;
+                    break;
+                }
+
+            }
+
+            else if(this.currentDirection === MovingDirection.downRight){
+                if(this.moveDown(MovingDirection.right)){
+                    break;
+                }
             }
 
         }
