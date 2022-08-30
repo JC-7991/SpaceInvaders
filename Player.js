@@ -11,6 +11,13 @@ export default class Player{
         this.width = 50;
         this.height = 48;
 
+        this.image = new Image();
+        this.image.src = "images/player.png";
+
     }
-    
+
+    draw(ctx){
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
 }
