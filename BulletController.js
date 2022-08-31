@@ -18,7 +18,13 @@ export default class BulletController{
     }
 
     draw(ctx){
+
+        this.bullets.forEach((bullet) => bullet.draw(ctx));
         
+        if(this.timeUntilNextBulletAllowed > 0){
+            this.timeUntilNextBulletAllowed--;
+        }
+
     }
 
     shoot(x, y, velocity, timeUntilNextBulletAllowed = 0){

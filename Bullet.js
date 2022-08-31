@@ -12,4 +12,11 @@ export default class Bullet{
         this.height = 20;
 
     }
+
+    draw(ctx){
+        this.y -= this.velocity;
+        ctx.fillStyle = this.bulletColor;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+
 }
