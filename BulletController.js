@@ -19,7 +19,7 @@ export default class BulletController{
 
     draw(ctx){
 
-        this.bullets = this.bullets.filter(bullet => bullet.y + bullet.width > 0);
+        this.bullets = this.bullets.filter(bullet => bullet.y + bullet.width > 0 && bullet.y <= this.canvas.height);
 
         this.bullets.forEach((bullet) => bullet.draw(ctx));
 
