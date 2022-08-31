@@ -1,3 +1,5 @@
+import Bullet from "./Bullet.js";
+
 export default class BulletController{
 
     bullets = [];
@@ -18,6 +20,7 @@ export default class BulletController{
     shoot(x, y, velocity, timeUntilNextBulletAllowed = 0){
         if(this.timeUntilNextBulletAllowed <= 0 && this.bullets.length < this.maxBulletsAtATime){
             const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
+            
         }
     }
 
