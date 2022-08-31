@@ -17,11 +17,26 @@ export default class BulletController{
 
     }
 
+    draw(ctx){
+        
+    }
+
     shoot(x, y, velocity, timeUntilNextBulletAllowed = 0){
+
         if(this.timeUntilNextBulletAllowed <= 0 && this.bullets.length < this.maxBulletsAtATime){
+
             const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
-            
+            this.bullets.push(bullet);
+
+            if(this.soundEnabled){
+                this.shootSound.currentTime = 0;
+                this.shootSound.play();
+            }
+
+            this.timeUntilNextBulletAllowed = timeUntilNextBulletAllowed;
+
         }
+
     }
 
 }
