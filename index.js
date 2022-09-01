@@ -21,6 +21,7 @@ function game(){
     enemyController.draw(ctx);
     player.draw(ctx);
     playerBulletController.draw(ctx);
+    enemyBulletController.draw(ctx);
 }
 
 setInterval(game, 1000/60);
