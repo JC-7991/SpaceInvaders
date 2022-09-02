@@ -17,10 +17,13 @@ export default class EnemyController{
     currentDirection = MovingDirection.right;
     xVelocity = 0;
     yVelocity = 0;
+
     defaultXVelocity = 1;
     defaulyYVelocity = 1;
+
     moveDownTimerDefault = 30;
     moveDownTimer = this.moveDownTimerDefault;
+    
     fireBulletDefaultTimer = 100;
     fireBulletTimer = this.fireBulletDefaultTimer;
 
