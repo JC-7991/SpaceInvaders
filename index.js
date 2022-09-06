@@ -17,14 +17,21 @@ const enemyBulletController = new BulletController(canvas, 4, "white", false);
 const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
 const player = new Player(canvas, 3, playerBulletController);
 
+let isGameOver = false;
+
 function game(){
 
+    checkGameOver();
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     enemyController.draw(ctx);
 
     player.draw(ctx);
     playerBulletController.draw(ctx);
     enemyBulletController.draw(ctx);
+
+}
+
+function checkGameOver(){
 
 }
 
