@@ -9,6 +9,7 @@ export default class BulletController{
 
         this.canvas = canvas;
         this.maxBulletsAtATime = maxBulletsAtATime;
+        
         this.bulletColor = bulletColor;
         this.soundEnabled = soundEnabled;
 

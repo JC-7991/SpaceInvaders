@@ -81,8 +81,10 @@ export default class EnemyController{
 
             this.fireBulletTimer = this.fireBulletDefaultTimer;
             const allEnemies = this.enemyRows.flat();
+
             const enemyIndex = Math.floor(Math.random() * allEnemies.length);
             const enemy = allEnemies[enemyIndex];
+
             this.enemyBulletController.shoot(enemy.x + enemy.width / 2, enemy.y, -3); 
 
         }
@@ -162,10 +164,12 @@ export default class EnemyController{
     }
 
     drawEnemies(ctx){
+
         this.enemyRows.flat().forEach((enemy) => {
             enemy.move(this.xVelocity, this.yVelocity);
             enemy.draw(ctx);
         });
+
     }
 
     createEnemies(){
@@ -173,6 +177,7 @@ export default class EnemyController{
         this.enemyMap.forEach((row, rowIndex) => {
 
             this.enemyRows[rowIndex] = [];
+            
             row.forEach((enemyNumber, enemyIndex) => {
                 if(enemyNumber > 0){
                     this.enemyRows[rowIndex].push(new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber));
