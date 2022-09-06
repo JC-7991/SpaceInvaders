@@ -32,7 +32,9 @@ function game(){
 }
 
 function checkGameOver(){
-
+    if(isGameOver){
+        
+    }
 }
 
 setInterval(game, 1000/60);
